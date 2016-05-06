@@ -1,0 +1,43 @@
+<div data-ng-controller="AppController">
+	<form data-ng-submit="companyRegister(company, companyCreateForm)" name="companyCreateForm"  novalidate>
+        <div class="row"></div>
+		<div class="row">
+          	<div class="col-md-3 col-md-offset-1">
+            	<div class="form-group">
+              		<input type="text" data-ng-model="company.name" name="name" class="form-control input-flat" placeholder="name" required/>
+	            </div>
+	        </div>
+	        <div class="col-md-3">
+            	<div class="form-group">
+              		<input type="text" data-ng-model="company.numberOfEmployees" name="numberOfEmployees" class="form-control input-flat" placeholder="numberOfEmployees" required/>
+	            </div>
+	        </div>
+	        	           
+	        <div class="col-md-3">
+	            <div class="form-group">
+	              <button class="btn btn-full btn-login input-flat">Add</button>
+	            </div>
+	        </div>
+  		</div>
+    </form>
+    <div class="row">
+    	<div class="col-md-11 col-md-offset-1">
+	    	<table class="table">
+				    <thead>
+				      <tr>
+				        <th>Name</th>
+				        <th>Number of Employees</th>
+				        <th>Delete</th>
+				      </tr>
+				    </thead>
+				    <tbody>
+				      <tr ng-repeat="item in companyList">
+				        <td>{{item.name}}</td>
+				        <td>{{item.numberOfEmployees}}</td>
+				        <td><a class="glyphicon glyphicon-trash" ng-click="delete(item._id)"></a></td>
+				      </tr>
+				    </tbody>
+			</table>
+		</div>
+	</div>
+</div>
