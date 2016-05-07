@@ -5,12 +5,12 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var app = express();
-var config = require('./config/config');
+var config = require('./server/config/config');
 
 
 var router = express.Router();
 
-var db = require('./config/db');
+var db = require('./server/config/db');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -28,7 +28,7 @@ router.use(cookieParser());
 router.use(express.static(path.join(__dirname, 'public')));
 
 /**load route file*/
-require('./routes')(router);
+require('./server/routes')(router);
 
 // catch 404 and forward to error handler
 router.use(function(req, res, next) {
