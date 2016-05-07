@@ -7,7 +7,8 @@ angular.module('app').factory('appService', ['$resource', function($resource) {
 			'getArray': { isArray: true },
 			'save': { method: 'POST' },
 			'get': {method: 'GET'},
-			'delete': {method: 'DELETE'}
+			'delete': {method: 'DELETE'},
+			'update': { method: 'PUT' },
 		});
 },
 ]);

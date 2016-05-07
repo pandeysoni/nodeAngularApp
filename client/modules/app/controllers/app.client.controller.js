@@ -17,7 +17,20 @@ angular.module('app').controller('AppController', ['$scope', 'growl', 'appServic
 				return false;
 			}
 		}
-
+		$scope.companyUpdate = function(company, companyForm){
+			if(companyForm.$valid){	
+				appService.update({url: 'company', id: company._id}, company).$promise.then(function(response){
+					growl.addSuccessMessage('Succesfully Updated');
+					$scope.company = {};
+					$scope.getAllCompany();
+				}).catch(function(err){
+					growl.addErrorMessage('oops something went wrong');
+				});
+			}
+			else{
+				return false;
+			}
+		}
 		$scope.getAllCompany = function(){
 			appService.getArray({url: 'company'}).$promise.then(function(response){
 				$scope.companyList = response;

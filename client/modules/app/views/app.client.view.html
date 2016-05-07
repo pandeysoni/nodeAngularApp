@@ -27,13 +27,29 @@
 				      <tr>
 				        <th>Name</th>
 				        <th>Number of Employees</th>
+				        <th>Update</th>
 				        <th>Delete</th>
 				      </tr>
 				    </thead>
 				    <tbody>
 				      <tr ng-repeat="item in companyList">
-				        <td>{{item.name}}</td>
-				        <td>{{item.numberOfEmployees}}</td>
+				      	<form name="companyUpdateForm"  novalidate>
+					        <td>
+					        	<div class="col-md-3">
+            						<div class="form-group">
+            							<input type="text" data-ng-model="item.name" name="name" class="form-control input-flat" placeholder="name" required/>
+            						</div>
+            					</div>
+            				</td>
+					        <td>
+					        	<div class="col-md-3">
+            						<div class="form-group">
+            							<input type="text" data-ng-model="item.numberOfEmployees" name="name" class="form-control input-flat" placeholder="name" required/>
+            						</div>
+            					</div>
+            				</td>
+            				<td><button class="btn btn-full btn-login input-flat" ng-click="companyUpdate(item, companyUpdateForm)">Update</button></td>
+				        </form>
 				        <td><a class="glyphicon glyphicon-trash" ng-click="delete(item._id)"></a></td>
 				      </tr>
 				    </tbody>
